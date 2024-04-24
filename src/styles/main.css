@@ -10,6 +10,10 @@ body {
 }
 
 .container{
+    width: 100%;
+    max-width: 850px;
+    height: 100%;
+    max-height: 750px;
     color: azure;
     position: relative;
     display: flex;
@@ -22,14 +26,16 @@ body {
 }
 
 h2{
-    font-size: 3em;
+    font-size: 200%;
     color: azure;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    margin-top: 20px;
+    
 }
 
 .reset{
-    padding: 15px 20px;
+    padding: 2% 5%;
     width: 100%;
     color: azure;
     background-color: black;
@@ -47,25 +53,32 @@ h2{
 }
 
 .game{
-    width: 650px;
-    height: 550px;
+  /*  width: 95%;
+    max-width: 595px;
+    height: 100%;
+    max-height: 650px; */
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     transform-style: preserve-3d;
     perspective: 500px;
+    align-content: flex-start; 
+    justify-content: center;
+    
 }
 
 .item{
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 15%;
+    height: 15%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     background-color: azure;
     transform: rotateY(180deg);
     transition: 0.25s;
+    object-fit: contain; 
 }
 
 .item img {
@@ -92,4 +105,52 @@ h2{
 
 .caixaAberta::after, caixaCerta::after {
     transform: rotateY(180deg);
+}
+
+@media (max-width: 768px) { /* A partir de 768px de largura da tela */
+    .item {
+        width: calc(50% - 10px); /* Muda para 50% de largura em dispositivos menores */
+        max-width: 100px; /* Reduz a largura máxima dos itens */
+    }
+
+    h2{
+        font-size: 220%;
+        margin-top: 1px;
+        margin-bottom: 1px;
+        color: azure;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 5px;
+    }
+
+    .container{
+        width: 100%;
+        max-width: 850px;
+        height: 100%;
+        max-height: 850px;
+        color: azure;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        background: black;
+        padding: 40px 60px;
+    }
+}
+
+@media (max-width: 480px) { /* A partir de 480px de largura da tela */
+    .item {
+        width: calc(100% - 242px); /* Muda para 100% de largura em dispositivos ainda menores */
+        max-width: 80px; /* Reduz ainda mais a largura máxima dos itens */
+    }
+
+    h2{
+        font-size: 120%;
+        color: azure;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 5px;
+    }
 }
